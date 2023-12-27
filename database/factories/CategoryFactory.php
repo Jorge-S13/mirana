@@ -13,8 +13,8 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'description' => $this->faker->text(),
+            'name' => $this->faker->sentence(3),
+            'description' => $this->faker->paragraph(3),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];

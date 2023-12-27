@@ -13,8 +13,8 @@ class TagFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->text(),
-            'description' => $this->faker->text(),
+            'name' => $this->faker->word(1),
+            'description' => $this->faker->paragraph(3),
             'is_visible' => $this->faker->boolean(),
             'color' => $this->faker->hexColor(),
             'created_at' => Carbon::now(),

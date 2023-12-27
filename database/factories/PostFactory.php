@@ -13,12 +13,12 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->word(),
-            'content' => $this->faker->word(),
-            'description' => $this->faker->text(),
-            'main_image' => $this->faker->word(),
-            'views_count' => $this->faker->randomNumber(),
-            'likes_count' => $this->faker->randomNumber(),
+            'title' => $this->faker->sentence(10),
+            'content' => $this->faker->paragraph(20),
+            'description' => $this->faker->paragraph(3),
+            'main_image' => $this->faker->imageUrl(640,480,'animals',true),
+            'views_count' => $this->faker->randomNumber(3,true),
+            'likes_count' => $this->faker->randomNumber(3,true),
             'posted_at' => Carbon::now(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
