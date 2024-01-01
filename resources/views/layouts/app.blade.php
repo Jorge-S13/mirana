@@ -15,6 +15,18 @@
     <x-moonshine::layout.flash />
 
     <x-moonshine::layout.top-bar :home_route="route('home')">
+        <x-slot:profile>
+            @auth
+                <x-moonshine::layout.profile
+                    route="/profile"
+                    :log-out-route="route('logout')"
+                />
+            @elseauth
+                <x-moonshine::link-button :href="route('login')">
+                    Log in
+                </x-moonshine::link-button>
+            @endauth
+        </x-slot:profile>
         <x-moonshine::layout.menu />
 
     </x-moonshine::layout.top-bar>

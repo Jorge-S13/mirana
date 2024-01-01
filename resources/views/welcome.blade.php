@@ -21,9 +21,9 @@
 
                     <x-slot:actions>
                         <x-moonshine::link-button href="#">Read more</x-moonshine::link-button>
-                        <div>
-                            {!! actionBtn("$post->likes_count", 'https://moonshine-laravel.com')->icon('heroicons.hand-thumb-up')!!}
-                        </div>
+{{--                        <div>--}}
+{{--                            {!! actionBtn("$post->likes_count", 'https://moonshine-laravel.com')->icon('heroicons.hand-thumb-up')!!}--}}
+{{--                        </div>--}}
                     </x-slot:actions>
                 </x-moonshine::card>
             </x-moonshine::column>

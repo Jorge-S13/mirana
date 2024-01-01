@@ -38,16 +38,16 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                ),
             ])->canSee(fn() => request()->routeIs('moonshine.*')),
 
-            MenuItem::make('Home Page', fn() => route('home'), 'heroicons.home')
+            MenuItem::make('Home Page', '/')
                 ->canSee(fn() => !request()->routeIs('moonshine.*')),
             MenuDivider::make(),
-            MenuItem::make('Contact Us', fn() => route('home'),'heroicons.envelope-open')
+            MenuItem::make('Contact Us', '/')
                 ->canSee(fn() => !request()->routeIs('moonshine.*')),
             MenuDivider::make(),
-            MenuItem::make('Privacy Policy', fn() => route('home'), 'heroicons.document-text')
+            MenuItem::make('Privacy Policy', '/')
                 ->canSee(fn() => !request()->routeIs('moonshine.*')),
             MenuDivider::make(),
-            MenuItem::make('Terms and Conditions', fn() => route('home'), 'heroicons.pencil')
+            MenuItem::make('Terms and Conditions', '/')
                 ->canSee(fn() => !request()->routeIs('moonshine.*')),
         ];
     }
