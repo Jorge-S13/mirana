@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use MoonShine\Menu\MenuDivider;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\MoonShine;
 use MoonShine\Menu\MenuGroup;
@@ -35,10 +36,19 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                    static fn() => __('moonshine::ui.resource.role_title'),
                    new MoonShineUserRoleResource()
                ),
-            ]),
+            ])->canSee(fn() => request()->routeIs('moonshine.*')),
 
-            MenuItem::make('Documentation', 'https://moonshine-laravel.com')
-               ->badge(fn() => 'Check'),
+            MenuItem::make('Home Page', fn() => route('home'), 'heroicons.home')
+                ->canSee(fn() => !request()->routeIs('moonshine.*')),
+            MenuDivider::make(),
+            MenuItem::make('Contact Us', fn() => route('home'),'heroicons.envelope-open')
+                ->canSee(fn() => !request()->routeIs('moonshine.*')),
+            MenuDivider::make(),
+            MenuItem::make('Privacy Policy', fn() => route('home'), 'heroicons.document-text')
+                ->canSee(fn() => !request()->routeIs('moonshine.*')),
+            MenuDivider::make(),
+            MenuItem::make('Terms and Conditions', fn() => route('home'), 'heroicons.pencil')
+                ->canSee(fn() => !request()->routeIs('moonshine.*')),
         ];
     }
 
