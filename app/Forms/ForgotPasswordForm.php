@@ -9,24 +9,22 @@ use MoonShine\Fields\Password;
 use MoonShine\Fields\PasswordRepeat;
 use MoonShine\Fields\Text;
 
-class PasswordResetForm
+class ForgotPasswordForm
 {
 
     public static function make(): FormBuilder
     {
         return FormBuilder::make(
-            route('password.email'),
+            route('password.request'),
+            'POST'
         )->fields([
-            Text::make('Name')->required(),
             Email::make('Email')->required(),
-            Password::make('Password')->required(),
-            PasswordRepeat::make('Password confirmation')->required()
         ])
             ->buttons([
                 ActionButton::make('Home', route('home'))->secondary(),
                 ActionButton::make('Log in', route('login'))->secondary(),
-                ActionButton::make('Forgot Password', route('home'))->secondary(),
+                ActionButton::make('Registration', route('register'))->secondary(),
             ])
-            ->submit('Registration',['class' => 'btn btn-primary w-full']);
+            ->submit('Restore password',['class' => 'btn btn-primary w-full']);
     }
 }

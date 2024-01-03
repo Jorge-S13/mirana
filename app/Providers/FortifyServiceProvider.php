@@ -7,7 +7,9 @@ use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
 use App\Forms\LoginForm;
+use App\Forms\ForgotPasswordForm;
 use App\Forms\RegisterForm;
+use App\Forms\ResetPasswordForm;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
@@ -56,7 +58,15 @@ class FortifyServiceProvider extends ServiceProvider
             ]);
         });
         Fortify::requestPasswordResetLinkView(function () {
-            return view('auth.passwordreset');
+            return view('auth.forgot-password',[
+                'form' => ForgotPasswordForm::make()
+            ]);
+        });
+        Fortify::resetPasswordView(function (Request $request) {
+            return view('auth.reset-password', [
+                'request' => $request,
+                'form' => ResetPasswordForm::make()
+            ]);
         });
     }
 }

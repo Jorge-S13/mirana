@@ -21,7 +21,7 @@ class LoginForm
             ->buttons([
                 ActionButton::make('Home', route('home'))->secondary(),
                 ActionButton::make('Registration', route('register'))->secondary(),
-                ActionButton::make('Forgot Password', route('home'))->secondary(),
+                ActionButton::make('Forgot Password', route('password.request'))->secondary(),
             ])
             ->submit('Log in',['class' => 'btn btn-primary w-full']);
     }
