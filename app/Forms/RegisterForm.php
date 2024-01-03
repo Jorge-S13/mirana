@@ -23,10 +23,9 @@ class RegisterForm
             PasswordRepeat::make('Password confirmation')->required()
         ])
             ->buttons([
-                ActionButton::make('Home', route('home'))->secondary(),
-                ActionButton::make('Log in', route('login'))->secondary(),
-                ActionButton::make('Forgot Password', route('password.request'))->secondary(),
+                ActionButton::make('Sign-in', route('login'))->secondary(),
+                ActionButton::make('Forgot password ?', route('password.request'))->secondary(),
             ])
-            ->submit('Registration',['class' => 'btn btn-primary w-full']);
+            ->submit('Sign-up',['class' => 'btn btn-primary w-full']);
     }
 }

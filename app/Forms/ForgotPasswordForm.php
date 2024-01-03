@@ -21,9 +21,7 @@ class ForgotPasswordForm
             Email::make('Email')->required(),
         ])
             ->buttons([
-                ActionButton::make('Home', route('home'))->secondary(),
-                ActionButton::make('Log in', route('login'))->secondary(),
-                ActionButton::make('Registration', route('register'))->secondary(),
+                ActionButton::make('Back', url()->previous())->secondary(),
             ])
             ->submit('Restore password',['class' => 'btn btn-primary w-full']);
     }
