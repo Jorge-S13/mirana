@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\MoonShine\Resources\CategoryResource;
+use App\MoonShine\Resources\PostResource;
+use App\MoonShine\Resources\TagResource;
 use MoonShine\Menu\MenuDivider;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\MoonShine;
@@ -36,6 +39,21 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                    static fn() => __('moonshine::ui.resource.role_title'),
                    new MoonShineUserRoleResource()
                ),
+            ])->canSee(fn() => request()->routeIs('moonshine.*')),
+
+            MenuGroup::make('Posts', [
+                MenuItem::make(
+                    'Posts',
+                    new PostResource()
+                ),
+                MenuItem::make(
+                    'Category',
+                    new CategoryResource()
+                ),
+                MenuItem::make(
+                    'Tags',
+                    new TagResource()
+                ),
             ])->canSee(fn() => request()->routeIs('moonshine.*')),
 
             MenuItem::make('Home Page', '/')
