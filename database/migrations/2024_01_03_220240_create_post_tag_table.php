@@ -11,7 +11,6 @@ return new class extends Migration {
             $table->id();
             $table->integer('post_id');
             $table->integer('tag_id');
-            $table->timestamps();
         });
     }
 

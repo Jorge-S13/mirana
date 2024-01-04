@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->string('main_image')->nullable();
             $table->boolean('is_published')->default(false);
             $table->dateTime('posted_at')->nullable();
+            $table->integer('category_id')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

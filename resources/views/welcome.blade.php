@@ -9,7 +9,7 @@
                     :overlay="true"
                     :thumbnail="$post->main_image"
                     :title="$post->title"
-                    :values="['Category' => 1, 'Rating' => \MoonShine\Fields\Number::make('Rating')->stars()->setValue(4)->min(0)->max(5)->preview() ]"
+                    :values="['Category' => $post->category->name, 'Rating' => \MoonShine\Fields\Number::make('Rating')->stars()->setValue(4)->min(0)->max(5)->preview() ]"
                 >
                     @if(\Carbon\Carbon::parse($post->created_at)->diffInDays(\Carbon\Carbon::now()) < 10)
                         <x-slot:header>
