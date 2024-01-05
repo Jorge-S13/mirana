@@ -41,13 +41,13 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                ),
             ])->canSee(fn() => request()->routeIs('moonshine.*')),
 
-            MenuGroup::make('Posts', [
+            MenuGroup::make('Blog', [
                 MenuItem::make(
                     'Posts',
                     new PostResource()
                 ),
                 MenuItem::make(
-                    'Category',
+                    'Categories',
                     new CategoryResource()
                 ),
                 MenuItem::make(
@@ -58,13 +58,13 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
             MenuItem::make('Home Page', '/')
                 ->canSee(fn() => !request()->routeIs('moonshine.*')),
-            MenuDivider::make(),
+            MenuDivider::make()->canSee(fn() => !request()->routeIs('moonshine.*')),
             MenuItem::make('Contact Us', '/')
                 ->canSee(fn() => !request()->routeIs('moonshine.*')),
-            MenuDivider::make(),
+            MenuDivider::make()->canSee(fn() => !request()->routeIs('moonshine.*')),
             MenuItem::make('Privacy Policy', '/')
                 ->canSee(fn() => !request()->routeIs('moonshine.*')),
-            MenuDivider::make(),
+            MenuDivider::make()->canSee(fn() => !request()->routeIs('moonshine.*')),
             MenuItem::make('Terms and Conditions', '/')
                 ->canSee(fn() => !request()->routeIs('moonshine.*')),
         ];

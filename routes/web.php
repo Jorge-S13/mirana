@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
@@ -15,7 +15,7 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 |
 */
 
-Route::get('/', [HomePageController::class, 'index'])->name('home');
+Route::get('/', [PostController::class, 'index'])->name('home');
 
 Route::get('logout', [AuthenticatedSessionController::class, 'destroy'])
     ->name('web.logout');
