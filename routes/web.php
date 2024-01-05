@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
@@ -19,3 +20,5 @@ Route::get('/', [PostController::class, 'index'])->name('home');
 
 Route::get('logout', [AuthenticatedSessionController::class, 'destroy'])
     ->name('web.logout');
+
+Route::get('/profile', ProfileController::class)->name('profile');
