@@ -23,7 +23,7 @@
                     {{ $post->description }}
 
                     <x-slot:actions>
-                        <x-moonshine::link-button href="{!! route('post.show',$post->slug) !!}">Read more</x-moonshine::link-button>
+                        <x-moonshine::link-button href="#">Read more</x-moonshine::link-button>
                         {{--                        <div>--}}
                         {{--                            {!! actionBtn("$post->likes_count", 'https://moonshine-laravel.com')->icon('heroicons.hand-thumb-up')!!}--}}
                         {{--                        </div>--}}

@@ -6,6 +6,7 @@ namespace App\Providers;
 
 use App\MoonShine\Resources\CategoryResource;
 use App\MoonShine\Resources\PostResource;
+use App\MoonShine\Resources\SeoResource;
 use App\MoonShine\Resources\TagResource;
 use MoonShine\Menu\MenuDivider;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
@@ -55,6 +56,9 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                     new TagResource()
                 ),
             ])->canSee(fn() => request()->routeIs('moonshine.*')),
+
+            MenuItem::make('Web Site', static fn () => route('home'))->canSee(fn() => request()->routeIs('moonshine.*')),
+            MenuItem::make('Seo', new SeoResource())->canSee(fn() => request()->routeIs('moonshine.*')),
 
             MenuItem::make('Home Page', '/')
                 ->canSee(fn() => !request()->routeIs('moonshine.*')),

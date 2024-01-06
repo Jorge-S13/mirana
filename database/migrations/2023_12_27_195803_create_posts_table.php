@@ -10,11 +10,9 @@ return new class extends Migration {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('content');
+            $table->longText('content');
             $table->text('description');
-            $table->integer('views_count')->default(0);
-            $table->integer('likes_count')->default(0);
-            $table->text('meta_data')->nullable();
+            $table->string('slug')->nullable();
             $table->string('main_image')->nullable();
             $table->boolean('is_published')->default(false);
             $table->dateTime('posted_at')->nullable();

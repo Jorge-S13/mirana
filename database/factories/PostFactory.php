@@ -19,8 +19,6 @@ class PostFactory extends Factory
             'content' => $this->faker->paragraph(20),
             'description' => $this->faker->paragraph(3),
             'main_image' => $this->faker->imageUrl(640,480,'animals',true),
-            'views_count' => $this->faker->randomNumber(3,true),
-            'likes_count' => $this->faker->randomNumber(3,true),
             'posted_at' => Carbon::now(),
             'category_id' => $this->faker->randomElement($categoruIds),
             'created_at' => Carbon::now(),
