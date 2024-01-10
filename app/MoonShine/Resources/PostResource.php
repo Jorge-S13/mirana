@@ -40,7 +40,7 @@ class PostResource extends ModelResource
                         ID::make()->sortable(),
                         Text::make('Title')->required(),
                         Textarea::make('Description')->required(),
-                        Image::make('Main Image', 'main_image')->required()->disk('public')->dir('posts')->hideOnIndex(),
+                        Image::make('Main Image', 'main_image')->disk('public')->dir('posts')->hideOnIndex(),
                     ]),
                 ])->columnSpan(8),
                 Column::make([

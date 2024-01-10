@@ -17,6 +17,7 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 */
 
 Route::get('/', [PostController::class, 'index'])->name('home');
+
 Route::get('/posts/{slug}',[PostController::class,'show'])->name('post.show');
 
 Route::get('logout', [AuthenticatedSessionController::class, 'destroy'])
