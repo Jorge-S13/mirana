@@ -24,7 +24,7 @@
                                     <a href="{{route('post.show',$post->slug)}}"> <img src="{{asset('storage/' . $post->main_image)}}" alt="clients"> </a>
                                 </div>
                                 <div class="btn-card">
-                                    <a href="#" class="view-btn">{{$post->category->name}}</a>
+                                    <a href="#" class="view-btn">{{$post->category_name}}</a>
                                 </div>
                                 <a href="{{route('post.show',$post->slug)}}">
                                     <h3 class="block-title">{{$post->title}}</h3>

@@ -10,7 +10,13 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->where('is_published', '=', true)->paginate(8);
+        $posts = Post::with('category')
+            ->selectRaw('posts.*, categories.name as category_name')
+            ->leftJoin('categories', 'categories.id', '=', 'posts.category_id')
+            ->orderByDesc('created_at')
+            ->where('is_published', true)
+            ->paginate(8,['slug','main_image','title']);
+
 
         return view('welcome',['posts' => $posts]);
     }
@@ -18,18 +24,23 @@ class PostController extends Controller
     {
         $post = Post::where('slug', $slug)->firstOrFail();
 
-        $categories = Category::inRandomOrder()->take(6)->get();
+        $categories = cache()->remember('random_categories', now()->addHours(6), function () {
+            return Category::inRandomOrder()->take(6)->select('name')->get();
+        });
 
-        $recentPosts = Post::where('id', '!=', $post->id)
-            ->where('is_published','=',1)
+
+        $recentPosts = Post::with('category')
+            ->where('id', '!=', $post->id)
+            ->where('is_published', true)
             ->latest()
             ->take(4)
             ->get();
 
 
 
-        $relatedPosts = Post::where('id', '!=', $post->id)
-            ->where('is_published','=',1)
+        $relatedPosts = Post::with('category')
+            ->where('id', '!=', $post->id)
+            ->where('is_published', true)
             ->inRandomOrder()
             ->take(4)
             ->get();

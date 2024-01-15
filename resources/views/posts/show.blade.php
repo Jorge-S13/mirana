@@ -216,8 +216,8 @@
                             <h3 class="block-title">Tags</h3>
                             <ul class="list-unstyled d-flex flex-wrap gap-2 bg-blue-trans p-3 rounded-3">
                                 <li>
-                                    @foreach($post->tags()->get() as $tag)
-                                        <a href="#" class="fs-6">{{ $tag->name . ',' }}</a>
+                                    @foreach($post->tags()->pluck('name') as $tagName)
+                                        <a href="#" class="fs-6">{{ $tagName . ',' }}</a>
                                     @endforeach
                                 </li>
                             </ul>

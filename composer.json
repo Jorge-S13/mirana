@@ -11,11 +11,13 @@
         "laravel/fortify": "^1.19",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
+        "laravel/telescope": "^4.17",
         "laravel/tinker": "^2.8",
         "lee-to/laravel-seo-by-url": "^1.0",
         "moonshine/moonshine": "^2.5"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "*",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
