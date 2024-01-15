@@ -80,7 +80,7 @@ CSS STRUCTURE:
 
 7. OTHER PAGES
 
-    
+
 /*--------------------------------------------------------------
 /** 1. VARIABLES
 --------------------------------------------------------------*/
@@ -454,6 +454,9 @@ i {
 .text-muted {
   color: var(--primary-color);
 }
+.text-muted1{
+    color: var(--primary-color);
+}
 
 .text-primary {
   color: var(--primary-color) !important;
@@ -612,10 +615,10 @@ td {
   padding: 12px 15px;
   text-align: left;
 }
-
-th:first-child,
-td:first-child {
-  padding-left: 0;
+tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 1px;
 }
 
 th:last-child,
@@ -897,7 +900,7 @@ fieldset[disabled] a.btn {
   border-radius: 2em;
 }
 
-/*---- Button Outline 
+/*---- Button Outline
 ----------------------------------------------*/
 .btn.btn-outline-dark,
 .btn.btn-outline-light,

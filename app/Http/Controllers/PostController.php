@@ -13,9 +13,9 @@ class PostController extends Controller
         $posts = Post::with('category')
             ->selectRaw('posts.*, categories.name as category_name')
             ->leftJoin('categories', 'categories.id', '=', 'posts.category_id')
-            ->orderByDesc('created_at')
+            ->orderByDesc('posted_at')
             ->where('is_published', true)
-            ->paginate(8,['slug','main_image','title']);
+            ->paginate(8,['slug','main_image','title','category_id']);
 
 
         return view('welcome',['posts' => $posts]);
@@ -24,9 +24,7 @@ class PostController extends Controller
     {
         $post = Post::where('slug', $slug)->firstOrFail();
 
-        $categories = cache()->remember('random_categories', now()->addHours(6), function () {
-            return Category::inRandomOrder()->take(6)->select('name')->get();
-        });
+        $categories = Category::inRandomOrder()->take(6)->select('id','name')->get();
 
 
         $recentPosts = Post::with('category')

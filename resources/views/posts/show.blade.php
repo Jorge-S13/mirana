@@ -16,53 +16,12 @@
                 <main class="post-grid col-md-9">
                     <div class="row">
                         <article class="post-item">
-                            <p>{{$post->posted_at->format('d M, Y')}} <span><a href="#" class="view-btn">{{$post->category->name}}</a></span></p>
+                            <p>{{$post->posted_at->format('d M, Y')}} <span><a href="{{route('categories',$post->category_id)}}" class="view-btn">{{$post->category->name}}</a></span></p>
                             <div class="hero-image">
                                 <img src="{{asset('storage/' . $post->main_image)}}" alt="single-post" class="img-fluid">
                             </div>
                             <div class="post-content py-5">
                                 <div class="post-description">
-{{--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consectetur facilisis--}}
-{{--                                        vivamus massa magna.--}}
-{{--                                        Blandit mauris libero condimentum commodo morbi consectetur sociis convallis--}}
-{{--                                        sit. Magna diam amet--}}
-{{--                                        justo sed vel dolor et volutpat integer. Iaculis sit sapien hac odio elementum--}}
-{{--                                        egestas neque.--}}
-{{--                                        Adipiscing purus euismod orci sem amet, et. Turpis erat ornare nisi laoreet est--}}
-{{--                                        euismod.</p>--}}
-{{--                                    <blockquote class="my-5">“Sit suscipit tortor turpis sed fringilla lectus facilisis--}}
-{{--                                        amet. Ipsum, amet dolor--}}
-{{--                                        curabitur non aliquet orci urna volutpat. Id aliquam neque, ut vivamus sit--}}
-{{--                                        imperdiet enim, lacus,--}}
-{{--                                        vel.</blockquote>--}}
-{{--                                    <h3 class="block-title">This blog is about NFTs</h3>--}}
-
-{{--                                    <ul class="inner-list mb-5">--}}
-{{--                                        <li>Blandit mauris libero condimentum commodo sociis convallis sit.</li>--}}
-{{--                                        <li>Magna diam amet justo sed vel dolor et volutpat integer.</li>--}}
-{{--                                        <li>Laculis sit sapien hac odio elementum egestas neque.</li>--}}
-{{--                                    </ul>--}}
-
-{{--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consectetur facilisis--}}
-{{--                                        vivamus massa magna.--}}
-{{--                                        Blandit mauris libero condimentum commodo morbi consectetur sociis convallis--}}
-{{--                                        sit. Magna diam amet--}}
-{{--                                        justo sed vel dolor et volutpat integer. Iaculis sit sapien hac odio elementum--}}
-{{--                                        egestas neque.--}}
-{{--                                        Adipiscing purus euismod orci sem amet, et. Turpis erat ornare nisi laoreet est--}}
-{{--                                        euismod.</p>--}}
-
-{{--                                    <p>Tortor diam dignissim amet, in interdum aliquet. Magnis dictum et eros purus--}}
-{{--                                        fermentum, massa--}}
-{{--                                        ullamcorper sit sollicitudin. Nascetur libero elementum adipiscing mauris--}}
-{{--                                        maecenas et magna. Etiam--}}
-{{--                                        nec, rutrum a diam lacus, nunc integer etiam. Mattis pulvinar non viverra donec--}}
-{{--                                        pellentesque. Odio--}}
-{{--                                        mi consequat libero dolor. Porta ut diam lobortis eget leo, lectus. Nunc tempus--}}
-{{--                                        feugiat massa--}}
-{{--                                        laoreet ultrices diam magna quam. Congue auctor auctor luctus neque. Enim lorem--}}
-{{--                                        ultrices diam donec.--}}
-{{--                                        Sed id placerat consectetur faucibus.</p>--}}
                                     {!!$post->content!!}
                                 </div>
                             </div>
@@ -194,7 +153,7 @@
                             <ul class="list-unstyled bg-blue-trans p-3 rounded-3">
                                 @foreach($categories as $category)
                                     <li>
-                                        <a href="#" class="item-anchor">{{$category->name}}</a>
+                                        <a href="{{route('categories',$category->id)}}" class="item-anchor">{{$category->name}}</a>
                                     </li>
                                     <hr class="m-0 mb-1">
                                 @endforeach
@@ -205,7 +164,7 @@
                             <ul class="list-unstyled bg-blue-trans p-3 rounded-3">
                                 @foreach($recentPosts as $recentPost)
                                     <li>
-                                        <a href="#" class="view-btn">{{$recentPost->category->name}}</a>
+                                        <a href="{{route('categories',$recentPost->category->id)}}" class="view-btn">{{$recentPost->category->name}}</a>
                                         <a href="{{route('post.show',$recentPost->slug)}}"> <h3 class="block-title fs-6">{{$recentPost->title}}</h3> </a>
                                     </li>
                                     <hr class="m-0 mb-1">
@@ -217,7 +176,7 @@
                             <ul class="list-unstyled d-flex flex-wrap gap-2 bg-blue-trans p-3 rounded-3">
                                 <li>
                                     @foreach($post->tags()->pluck('name') as $tagName)
-                                        <a href="#" class="fs-6">{{ $tagName . ',' }}</a>
+                                        <a href="{{route('tags',$tagName)}}" class="fs-6">{{ $tagName . ',' }}</a>
                                     @endforeach
                                 </li>
                             </ul>
@@ -246,7 +205,7 @@
                                             <a href="{{route('post.show',$relatedPost->slug)}}"> <img src="{{asset('storage/' . $relatedPost->main_image)}}" alt="clients"> </a>
                                         </div>
                                         <div class="btn-card">
-                                            <a href="#" class="view-btn">{{$relatedPost->category->name}}</a>
+                                            <a href="{{route('categories',$relatedPost->category->id)}}" class="view-btn">{{$relatedPost->category->name}}</a>
                                         </div>
                                         <a href="{{route('post.show',$relatedPost->slug)}}">
                                             <h3 class="block-title">{{$relatedPost->title}}</h3>
