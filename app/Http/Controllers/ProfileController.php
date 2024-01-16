@@ -8,6 +8,6 @@ class ProfileController extends Controller
 {
     public function __invoke()
     {
-        return ProfilePage::make();
+        return view('auth.profile');
     }
 }

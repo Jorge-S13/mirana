@@ -13,8 +13,8 @@ return [
     'namespace' => 'App\MoonShine',
 
     'title' => env('MOONSHINE_TITLE', 'MoonShine'),
-    'logo' => env('MOONSHINE_LOGO'),
-    'logo_small' => env('MOONSHINE_LOGO_SMALL'),
+    'logo' => asset('storage/logo/linkspectrixLogobyDesigner.png'),
+    'logo_small' => asset('storage/logo/linkspectrixLogobyDesigner.png'),
 
     'route' => [
         'domain' => env('MOONSHINE_URL', ''),

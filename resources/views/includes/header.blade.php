@@ -48,10 +48,12 @@
                             <a href="{{route('login')}}" class="btn btn-linear btn-medium">Log in</a>
                             <a href="{{route('register')}}" class="btn btn-outline-linear btn-medium m-0">Sign up</a>
                         @else
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button type="submit" class="btn btn-linear btn-medium">Logout</button>
-                            </form>
+
+                                <div class="clients-detail">
+                                    <a href="{{route("profile")}}"><img src="images/clients-item1.jpg" alt="clients" class="circle-shape"></a>
+                                    <a href="{{route("profile")}}"><span class="clients-name">{{auth()->user()->name}}</span></a>
+                                </div>
+
                         @endif
                     </div>
                 </div>

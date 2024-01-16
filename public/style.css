@@ -2258,3 +2258,7 @@ iconify-icon.signup-social-icon{
 .profile-img{
   box-shadow: 0px 4px 44px 0px rgba(255, 255, 255, 0.08);
 }
+
+textarea.form-control {
+    min-height: 150px;
+}
