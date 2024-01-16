@@ -34,6 +34,14 @@ class PostController extends Controller
             ->take(4)
             ->get();
 
+//        $rPosts = Post::with('category')
+//            ->where('id', '!=', $post->id)
+//            ->where('is_published', true)
+//            ->get();
+//
+//        $recentPosts = $rPosts->sortByDesc('posted_at')->take(4);
+//
+//        $relatedPosts = $rPosts->shuffle()->take(4);
 
 
         $relatedPosts = Post::with('category')

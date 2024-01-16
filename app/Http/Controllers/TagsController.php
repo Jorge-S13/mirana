@@ -11,7 +11,8 @@ class TagsController extends Controller
     public function index($name): View
     {
 
-        $posts = Post::whereRelation('tags', 'name', $name)
+        $posts = Post::
+            whereRelation('tags', 'name', $name)
             ->selectRaw('posts.*, categories.name as category_name')
             ->leftJoin('categories', 'categories.id', '=', 'posts.category_id')
             ->orderByDesc('posted_at')

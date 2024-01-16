@@ -23,25 +23,36 @@
                         <ul class="menu-list list-unstyled d-lg-flex m-0">
                             <li class="menu-item ">
                                 <a href="{{route('home')}}"
-                                   class="item-anchor"> <b>Home</b> </a>
+                                   class="item-anchor"> <b>News</b> </a>
                             </li>
                             <li class="menu-item ">
                                 <a href="{{route('home')}}"
-                                   class="item-anchor"> <b>Home</b> </a>
+                                   class="item-anchor"> <b>Reviews</b> </a>
                             </li>
                             <li class="menu-item ">
                                 <a href="{{route('home')}}"
-                                   class="item-anchor"> <b>Home</b> </a>
+                                   class="item-anchor"> <b>Hardware</b> </a>
                             </li>
                             <li class="menu-item ">
                                 <a href="{{route('home')}}"
-                                   class="item-anchor"> <b>Home</b> </a>
+                                   class="item-anchor"> <b>Best of</b> </a>
+                            </li>
+                            <li class="menu-item ">
+                                <a href="{{route('home')}}"
+                                   class="item-anchor"> <b>Affiliate links</b> </a>
                             </li>
                         </ul>
                     </div>
                     <div class="btn-wrap d-flex my-4 my-lg-0 ">
-                        <a href="#" class="btn btn-linear btn-medium">Log in</a>
-                        <a href="#" class="btn btn-outline-linear btn-medium m-0">Sign up</a>
+                        @if (auth()->guest())
+                            <a href="{{route('login')}}" class="btn btn-linear btn-medium">Log in</a>
+                            <a href="{{route('register')}}" class="btn btn-outline-linear btn-medium m-0">Sign up</a>
+                        @else
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="btn btn-linear btn-medium">Logout</button>
+                            </form>
+                        @endif
                     </div>
                 </div>
             </div>
