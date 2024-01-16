@@ -27,6 +27,10 @@
                             </li>
                             <li class="menu-item ">
                                 <a href="{{route('home')}}"
+                                   class="item-anchor"> <b>Blog</b> </a>
+                            </li>
+                            <li class="menu-item ">
+                                <a href="{{route('home')}}"
                                    class="item-anchor"> <b>Reviews</b> </a>
                             </li>
                             <li class="menu-item ">
