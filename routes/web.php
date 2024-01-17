@@ -28,4 +28,9 @@ Route::get('/tags/{name}',[TagsController::class,'index'])->name('tags');
 Route::get('logout', [AuthenticatedSessionController::class, 'destroy'])
     ->name('web.logout');
 
-Route::get('/profile', ProfileController::class)->name('profile');
+Route::prefix('profile')->middleware(['auth', 'verified'])->name('profile.')->group(function () {
+    Route::get('/settings', [ProfileController::class,'index'])->name('settings');
+    Route::post('/upload-image',[ProfileController::class,'storeImage'])->name('upload-image');
+});
+
+

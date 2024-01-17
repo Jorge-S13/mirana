@@ -52,10 +52,11 @@
                             <a href="{{route('login')}}" class="btn btn-linear btn-medium">Log in</a>
                             <a href="{{route('register')}}" class="btn btn-outline-linear btn-medium m-0">Sign up</a>
                         @else
-
                                 <div class="clients-detail">
-                                    <a href="{{route("profile")}}"><img src="images/clients-item1.jpg" alt="clients" class="circle-shape"></a>
-                                    <a href="{{route("profile")}}"><span class="clients-name">{{auth()->user()->name}}</span></a>
+                                    <a href="{{route("profile.settings")}}"><img src="{{asset('storage/' . auth()->user()->profile_image)}}" alt="profile image"
+                                                                                 class="circle-shape max-w-2xl max-h-1px"
+                                        style="width: 36px; height: 36px"></a>
+                                    <a href="{{route("profile.settings")}}"><span class="clients-name">{{auth()->user()->name}}</span></a>
                                 </div>
 
                         @endif

@@ -27,6 +27,17 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'max:255',
                 Rule::unique('users')->ignore($user->id),
             ],
+            'bio' => [
+                'nullable',
+                'string',
+                'max:2000',
+                'min:100'
+            ],
+            'facebook' => ['url' => 'url:http,https'],
+            'twitter' => ['url' => 'url:http,https'],
+            'instagram' => ['url' => 'url:http,https'],
+            'discord' => ['url' => 'url:http,https'],
+
         ])->validateWithBag('updateProfileInformation');
 
         if ($input['email'] !== $user->email &&
@@ -36,6 +47,13 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'name' => $input['name'],
                 'email' => $input['email'],
+                'bio' => $input['bio'],
+                'social_links' => [
+                    'facebook' => $input['facebook'],
+                    'twitter' => $input['twitter'],
+                    'instagram' => $input['instagram'],
+                    'discord' => $input['discord'],
+                ],
             ])->save();
         }
     }
