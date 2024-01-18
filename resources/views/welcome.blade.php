@@ -21,7 +21,8 @@
                         <div class="product-item bg-blue-trans p-3 rounded-1 mb-3 ">
                             <div class="product-detail">
                                 <div class="clients-detail">
-                                    <a href="{{route('post.show',$post->slug)}}"> <img src="{{asset('storage/' . $post->main_image)}}" alt="clients"> </a>
+                                    <a href="{{route('post.show',$post->slug)}}"> <img src="{{asset('storage/' . $post->main_image)}}
+" alt="clients"> </a>
                                 </div>
                                 <div class="btn-card">
                                     <a href="{{route('categories',$post->category_id)}}" class="view-btn">{{$post->category_name}}</a>
