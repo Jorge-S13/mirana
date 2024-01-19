@@ -4,9 +4,9 @@
 
 
 <section id="hero" class="pattern-blur">
-    <div class="pattern-overlay pattern-blur-right right-side-pattern">
-        <img src="{{asset('images/pattern-blur-right.png')}}" alt="">
-    </div>
+{{--    <div class="pattern-overlay pattern-blur-right right-side-pattern">--}}
+{{--        <img src="{{asset('images/pattern-blur-right.png')}}" fetchpriority="low" alt="">--}}
+{{--    </div>--}}
     <div class="container ">
         <h2 class="section-title light text-center mt-5 pt-5">Our Blog</h2>
     </div>
@@ -22,7 +22,7 @@
                             <div class="product-detail">
                                 <div class="clients-detail">
                                     <a href="{{route('post.show',$post->slug)}}"> <img src="{{asset('storage/' . $post->main_image)}}
-" alt="clients"> </a>
+" alt="{{$post->slug}}"> </a>
                                 </div>
                                 <div class="btn-card">
                                     <a href="{{route('categories',$post->category_id)}}" class="view-btn">{{$post->category_name}}</a>

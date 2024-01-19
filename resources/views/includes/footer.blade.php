@@ -1,7 +1,7 @@
 <footer id="footer" class="padding-large pattern-blur">
-    <div class="pattern-overlay pattern-blur-footer right-side-pattern">
-        <img src="{{asset('images/footer-pattern.png')}}">
-    </div>
+{{--    <div class="pattern-overlay pattern-blur-footer right-side-pattern">--}}
+{{--        <img src="{{asset('images/footer-pattern.png')}}" fetchpriority="low">--}}
+{{--    </div>--}}
     <div class="container">
         <div class="row d-flex flex-wrap justify-content-between">
             <div class="col-lg-4 col-md-6">
