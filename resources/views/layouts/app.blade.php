@@ -21,9 +21,10 @@
     @seo
 
     {{--  META OG  --}}
-    <meta property="og:title" content="{{$post->title ?? ''}}" />
+    <meta property="og:title" content="{{$post->title ?? '.'}}" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="{{asset('storage/' . $post->main_image)}}" />
+    <meta property="og:image" content="{{asset('storage/' . ($post->main_image ?? ''))}}" />
+
     <meta property="og:url" content="{{url()->current()}}" />
     <meta property="og:site_name " content="{{config('app.name')}}" />
     {{--  META OG  --}}

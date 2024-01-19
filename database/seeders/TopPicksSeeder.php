@@ -3,12 +3,13 @@
 namespace Database\Seeders;
 
 use App\Models\Post;
+use App\Models\TopPicks;
 use Illuminate\Database\Seeder;
 
-class PostSeeder extends Seeder
+class TopPicksSeeder extends Seeder
 {
     public function run(): void
     {
-        Post::factory()->count(100)->create();
+        TopPicks::factory()->count(100)->create();
     }
 }

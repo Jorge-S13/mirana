@@ -3,13 +3,13 @@
 namespace Database\Factories;
 
 use App\Models\Category;
-use App\Models\Post;
+use App\Models\Reviews;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
-class PostFactory extends Factory
+class ReviewsFactory extends Factory
 {
-    protected $model = Post::class;
+    protected $model = Reviews::class;
 
     public function definition(): array
     {

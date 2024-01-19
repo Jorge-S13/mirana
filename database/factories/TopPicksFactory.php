@@ -3,13 +3,13 @@
 namespace Database\Factories;
 
 use App\Models\Category;
-use App\Models\Post;
+use App\Models\TopPicks;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
-class PostFactory extends Factory
+class TopPicksFactory extends Factory
 {
-    protected $model = Post::class;
+    protected $model = TopPicks::class;
 
     public function definition(): array
     {

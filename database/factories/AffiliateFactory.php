@@ -2,14 +2,14 @@
 
 namespace Database\Factories;
 
+use App\Models\Affiliate;
 use App\Models\Category;
-use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
-class PostFactory extends Factory
+class AffiliateFactory extends Factory
 {
-    protected $model = Post::class;
+    protected $model = Affiliate::class;
 
     public function definition(): array
     {

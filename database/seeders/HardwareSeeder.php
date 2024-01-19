@@ -2,13 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Hardware;
 use App\Models\Post;
 use Illuminate\Database\Seeder;
 
-class PostSeeder extends Seeder
+class HardwareSeeder extends Seeder
 {
     public function run(): void
     {
-        Post::factory()->count(100)->create();
+        Hardware::factory()->count(100)->create();
     }
 }

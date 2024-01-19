@@ -2,13 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Affiliate;
 use App\Models\Post;
 use Illuminate\Database\Seeder;
 
-class PostSeeder extends Seeder
+class AffiliateSeeder extends Seeder
 {
     public function run(): void
     {
-        Post::factory()->count(100)->create();
+        Affiliate::factory()->count(100)->create();
     }
 }

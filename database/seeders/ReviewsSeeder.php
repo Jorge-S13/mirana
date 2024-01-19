@@ -2,13 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\Post;
+use App\Models\Reviews;
 use Illuminate\Database\Seeder;
 
-class PostSeeder extends Seeder
+class ReviewsSeeder extends Seeder
 {
     public function run(): void
     {
-        Post::factory()->count(100)->create();
+        Reviews::factory()->count(100)->create();
     }
 }
