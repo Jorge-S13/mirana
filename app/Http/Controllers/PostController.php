@@ -18,13 +18,13 @@ class PostController extends Controller
             ->paginate(8,['slug','main_image','title','category_id']);
 
 
-        return view('welcome',['posts' => $posts]);
+        return view('pages.posts.index',['posts' => $posts]);
     }
     protected function show($slug): View
     {
         $post = Post::where('slug', $slug)->firstOrFail();
 
-        $categories = Category::inRandomOrder()->take(6)->select('id','name')->get();
+        $categories = Category::inRandomOrder()->take(6)->get();
 
 
         $recentPosts = Post::with('category')
@@ -51,7 +51,7 @@ class PostController extends Controller
             ->take(4)
             ->get();
 
-        return view('posts.show',[
+        return view('pages.posts.show',[
             'post' => $post,
             'categories' => $categories,
             'recentPosts' => $recentPosts,

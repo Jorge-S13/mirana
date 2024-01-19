@@ -16,9 +16,9 @@
                 <main class="post-grid col-md-9">
                     <div class="row">
                         <article class="post-item">
-                            <p>{{$post->posted_at->format('d M, Y')}} <span><a href="{{route('categories',$post->category_id)}}" class="view-btn">{{$post->category->name}}</a></span></p>
+                            <p>{{$post->posted_at->format('d M, Y')}} <span><a href="{{route('top-picks.categories',$post->category->slug)}}" class="view-btn">{{$post->category->name}}</a></span></p>
                             <div class="hero-image">
-                                <img src="{{asset('storage/' . $post->main_image)}}" alt="single-post" class="img-fluid">
+                                <img src="{{asset('storage/' . $post->main_image)}}" alt="{{$post->image_alt}}" class="img-fluid">
                             </div>
                             <div class="post-content py-5">
                                 <div class="post-description">
@@ -153,7 +153,7 @@
                             <ul class="list-unstyled bg-blue-trans p-3 rounded-3">
                                 @foreach($categories as $category)
                                     <li>
-                                        <a href="{{route('categories',$category->id)}}" class="item-anchor">{{$category->name}}</a>
+                                        <a href="{{route('top-picks.categories',$category->slug)}}" class="item-anchor">{{$category->name}}</a>
                                     </li>
                                     <hr class="m-0 mb-1">
                                 @endforeach
@@ -164,8 +164,8 @@
                             <ul class="list-unstyled bg-blue-trans p-3 rounded-3">
                                 @foreach($recentPosts as $recentPost)
                                     <li>
-                                        <a href="{{route('categories',$recentPost->category->id)}}" class="view-btn">{{$recentPost->category->name}}</a>
-                                        <a href="{{route('post.show',$recentPost->slug)}}"> <h3 class="block-title fs-6">{{$recentPost->title}}</h3> </a>
+                                        <a href="{{route('top-picks.categories',$recentPost->category->slug)}}" class="view-btn">{{$recentPost->category->name}}</a>
+                                        <a href="{{route('top-picks.show',$recentPost->slug)}}"> <h3 class="block-title fs-6">{{$recentPost->title}}</h3> </a>
                                     </li>
                                     <hr class="m-0 mb-1">
                                 @endforeach
@@ -175,8 +175,8 @@
                             <h3 class="block-title">Tags</h3>
                             <ul class="list-unstyled d-flex flex-wrap gap-2 bg-blue-trans p-3 rounded-3">
                                 <li>
-                                    @foreach($post->tags()->pluck('name') as $tagName)
-                                        <a href="{{route('tags',$tagName)}}" class="fs-6">{{ $tagName . ',' }}</a>
+                                    @foreach($post->tags()->get() as $tag)
+                                        <a href="{{route('top-picks.tags',$tag->slug)}}" class="fs-6">{{ $tag->name . ',' }}</a>
                                     @endforeach
                                 </li>
                             </ul>
@@ -202,12 +202,12 @@
                                 <div class="product-item bg-blue-trans p-3 rounded-1 mb-3 ">
                                     <div class="product-detail">
                                         <div class="clients-detail">
-                                            <a href="{{route('post.show',$relatedPost->slug)}}"> <img src="{{asset('storage/' . $relatedPost->main_image)}}" alt="clients"> </a>
+                                            <a href="{{route('top-picks.show',$relatedPost->slug)}}"> <img src="{{asset('storage/' . $relatedPost->main_image)}}" alt="clients"> </a>
                                         </div>
                                         <div class="btn-card">
-                                            <a href="{{route('categories',$relatedPost->category->id)}}" class="view-btn">{{$relatedPost->category->name}}</a>
+                                            <a href="{{route('top-picks.categories',$relatedPost->category->slug)}}" class="view-btn">{{$relatedPost->category->name}}</a>
                                         </div>
-                                        <a href="{{route('post.show',$relatedPost->slug)}}">
+                                        <a href="{{route('top-picks.show',$relatedPost->slug)}}">
                                             <h3 class="block-title">{{$relatedPost->title}}</h3>
                                         </a>
                                     </div>
