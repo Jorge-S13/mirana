@@ -29,17 +29,10 @@ class TagResource extends ModelResource
         return [
             Block::make([
                 ID::make()->sortable(),
+                Text::make('Name')
+                    ->updateOnPreview()
+                    ->required(),
             ]),
-
-            Text::make('Name')
-                ->updateOnPreview()
-                ->required(),
-
-            Text::make('Description')->required(),
-            Switcher::make('Visible', 'is_visible'),
-            Color::make('Color'),
-
-
         ];
     }
 

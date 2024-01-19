@@ -181,6 +181,7 @@
 <section id="hero" class="pattern-blur">
     <div class="container ">
         <h2 class="section-title light text-center mt-5 pt-5">Affiliate links</h2>
+        <p class="light text-center mt-2 pt-2">Welcome to the Affiliate Links page! Here we share with you recommendations for products and services that have inspired us. It's important to note that some of the links shown here are affiliate links and we may receive a small percentage of the sale when you use them.</p>
     </div>
 </section>
 
