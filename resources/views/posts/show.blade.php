@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.app', ['$post' => $post])
 
 @section('content')
     <section id="hero" class="pattern-blur">
-        <div class="pattern-overlay pattern-blur-right right-side-pattern">
-            <img src="{{asset('images/pattern-blur-right.png')}}" alt="">
-        </div>
+{{--        <div class="pattern-overlay pattern-blur-right right-side-pattern">--}}
+{{--            <img src="{{asset('images/pattern-blur-right.png')}}" alt="">--}}
+{{--        </div>--}}
         <div class="container ">
             <h2 class="section-title light text-center mt-5 pt-5">{{$post->title}}</h2>
         </div>
