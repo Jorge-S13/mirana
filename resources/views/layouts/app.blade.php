@@ -10,6 +10,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="author" content="">
+    <meta name="p:domain_verify" content="81d7a335084e451f9a48009dc5b09b14"/>
 
     <meta name="robots" content="index,follow">
 
