@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Affiliate;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,7 +17,12 @@ class DatabaseSeeder extends Seeder
             TagSeeder::class,
             CategorySeeder::class,
             PostSeeder::class,
-            PostTagSeeder::class,
+            AffiliateSeeder::class,
+            HardwareSeeder::class,
+            NewsSeeder::class,
+            ReviewsSeeder::class,
+            TopPicksSeeder::class,
+            TaggabbleSeeder::class,
         ]);
     }
 }

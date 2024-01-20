@@ -38,8 +38,8 @@ class PostResource extends ModelResource
                 Column::make([
                     Block::make([
                         ID::make()->sortable(),
-                        Text::make('Title')->required(),
-                        Textarea::make('Description')->required(),
+                        Text::make('Title', 'title')->required(),
+                        Text::make('Image Alternative Text', 'image_alt')->required(),
                         Image::make('Main Image', 'main_image')->disk('public')->dir('posts')->hideOnIndex(),
                     ]),
                 ])->columnSpan(8),
@@ -47,6 +47,7 @@ class PostResource extends ModelResource
                     Block::make([
                         BelongsTo::make('Category', resource: new CategoryResource())->searchable(),
                         BelongsToMany::make('Tags', resource: new TagResource())->hideOnIndex()->creatable()->selectMode()->searchable(),
+                        Divider::make('Content publishing switcher'),
                         Switcher::make('Is published')->updateOnPreview(),
                     ])
                 ])->columnSpan(4)

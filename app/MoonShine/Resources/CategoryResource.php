@@ -32,8 +32,6 @@ class CategoryResource extends ModelResource
                     ->updateOnPreview()
                     ->required(),
 
-                Text::make('Description')->required(),
-
             ]),
         ];
     }

@@ -4,7 +4,7 @@
 
             <div class="main-logo">
                 <a href="{{route('home')}}">
-                    <img src="{{asset('images/main-logo.png')}}" alt="logo">
+                    LinkSpectrix
                 </a>
             </div>
 
@@ -22,27 +22,27 @@
                     <div class="main-menu text-center d-lg-flex align-items-center">
                         <ul class="menu-list list-unstyled d-lg-flex m-0">
                             <li class="menu-item ">
-                                <a href="{{route('home')}}"
+                                <a href="{{route('news.index')}}"
                                    class="item-anchor"> <b>News</b> </a>
                             </li>
                             <li class="menu-item ">
-                                <a href="{{route('home')}}"
+                                <a href="{{route('blog.index')}}"
                                    class="item-anchor"> <b>Blog</b> </a>
                             </li>
                             <li class="menu-item ">
-                                <a href="{{route('home')}}"
+                                <a href="{{route('reviews.index')}}"
                                    class="item-anchor"> <b>Reviews</b> </a>
                             </li>
                             <li class="menu-item ">
-                                <a href="{{route('home')}}"
-                                   class="item-anchor"> <b>Hardware</b> </a>
+                                <a href="{{route('hardware.index')}}"
+                                   class="item-anchor"> <b>Hardware Hub</b> </a>
                             </li>
                             <li class="menu-item ">
-                                <a href="{{route('home')}}"
-                                   class="item-anchor"> <b>Best of</b> </a>
+                                <a href="{{route('top-picks.index')}}"
+                                   class="item-anchor"> <b>Top Picks</b> </a>
                             </li>
                             <li class="menu-item ">
-                                <a href="{{route('home')}}"
+                                <a href="{{route('affiliate-links.index')}}"
                                    class="item-anchor"> <b>Affiliate links</b> </a>
                             </li>
                         </ul>

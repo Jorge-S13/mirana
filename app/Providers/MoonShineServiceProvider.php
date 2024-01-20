@@ -4,10 +4,15 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\MoonShine\Resources\AffiliateResource;
 use App\MoonShine\Resources\CategoryResource;
+use App\MoonShine\Resources\HardwareResource;
+use App\MoonShine\Resources\NewsResource;
 use App\MoonShine\Resources\PostResource;
+use App\MoonShine\Resources\ReviewsResource;
 use App\MoonShine\Resources\SeoResource;
 use App\MoonShine\Resources\TagResource;
+use App\MoonShine\Resources\TopPicksResource;
 use MoonShine\Menu\MenuDivider;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\MoonShine;
@@ -31,46 +36,48 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
     protected function menu(): array
     {
         return [
-            MenuGroup::make(static fn() => __('moonshine::ui.resource.system'), [
-               MenuItem::make(
-                   static fn() => __('moonshine::ui.resource.admins_title'),
-                   new MoonShineUserResource()
-               ),
-               MenuItem::make(
-                   static fn() => __('moonshine::ui.resource.role_title'),
-                   new MoonShineUserRoleResource()
-               ),
-            ])->canSee(fn() => request()->routeIs('moonshine.*')),
+//            MenuGroup::make(static fn() => __('moonshine::ui.resource.system'), [
+//               MenuItem::make(
+//                   static fn() => __('moonshine::ui.resource.admins_title'),
+//                   new MoonShineUserResource()
+//               ),
+//               MenuItem::make(
+//                   static fn() => __('moonshine::ui.resource.role_title'),
+//                   new MoonShineUserRoleResource()
+//               ),
+//            ]),
 
-            MenuGroup::make('Blog', [
+            MenuGroup::make('Content Manager', [
                 MenuItem::make(
-                    'Posts',
+                    'News',
+                    new NewsResource()
+                ),
+                MenuItem::make(
+                    'Blog',
                     new PostResource()
                 ),
                 MenuItem::make(
-                    'Categories',
-                    new CategoryResource()
+                    'Reviews',
+                    new ReviewsResource()
                 ),
                 MenuItem::make(
-                    'Tags',
-                    new TagResource()
+                    'Hardware Hub',
+                    new HardwareResource()
                 ),
-            ])->canSee(fn() => request()->routeIs('moonshine.*')),
+                MenuItem::make(
+                    'Top Picks',
+                    new TopPicksResource()
+                ),
+                MenuItem::make(
+                    'Affiliate links',
+                    new AffiliateResource()
+                ),
+            ]),
+            MenuItem::make('Categories', new CategoryResource()),
 
-            MenuItem::make('Web Site', static fn () => route('home'))->canSee(fn() => request()->routeIs('moonshine.*')),
-            MenuItem::make('Seo', new SeoResource())->canSee(fn() => request()->routeIs('moonshine.*')),
-
-            MenuItem::make('Home Page', '/')
-                ->canSee(fn() => !request()->routeIs('moonshine.*')),
-            MenuDivider::make()->canSee(fn() => !request()->routeIs('moonshine.*')),
-            MenuItem::make('Contact Us', '/')
-                ->canSee(fn() => !request()->routeIs('moonshine.*')),
-            MenuDivider::make()->canSee(fn() => !request()->routeIs('moonshine.*')),
-            MenuItem::make('Privacy Policy', '/')
-                ->canSee(fn() => !request()->routeIs('moonshine.*')),
-            MenuDivider::make()->canSee(fn() => !request()->routeIs('moonshine.*')),
-            MenuItem::make('Terms and Conditions', '/')
-                ->canSee(fn() => !request()->routeIs('moonshine.*')),
+            MenuItem::make('Tags', new TagResource()),
+            MenuItem::make('Seo', new SeoResource()),
+            MenuItem::make('Web Site', static fn () => route('home')),
         ];
     }
 

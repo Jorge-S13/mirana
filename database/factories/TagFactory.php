@@ -14,9 +14,6 @@ class TagFactory extends Factory
     {
         return [
             'name' => $this->faker->word(1),
-            'description' => $this->faker->paragraph(3),
-            'is_visible' => $this->faker->boolean(),
-            'color' => $this->faker->hexColor(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];
